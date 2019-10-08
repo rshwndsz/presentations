@@ -189,14 +189,52 @@
 
   \begin{frame}
     \frametitle{Tacotron 2}
+    Neural network composed of a recurrent sequence-to-sequence feature prediction network that maps character embeddings to mel-scale spectrograms, followed by a modified WaveNet model acting as a vocoder to synthesize time-domain waveforms from those spectrograms.
   \end{frame}
 
   \begin{frame}
     \frametitle{Tacotron 2: Architecture}
+    \begin{figure}
+      \includegraphics[scale=0.25]{images/tacotron_arch.png}
+      \caption{Block diagram of Tacotron 2 system architecture\footfullcite{shen_natural_2017}}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Mel spectrogram}
+      \begin{itemize}
+        \item Related to the short-time Fourier transform (STFT) magnitude 
+        \item Obtained by applying a nonlinear transform to the frequency axis of the STFT
+        \item Emphasizes details in lower frequencies
+        \item De-emphasizes high frequency details
+      \end{itemize}
+      Features derived from the mel scale have been used as an underlying representation for speech recognition for many decades. \footfullcite{davis1980comparison}
   \end{frame}
 
   \begin{frame}
     \frametitle{Tacotron 2: Training}
+    \begin{columns}
+      \column{0.5\textwidth}
+        \textbf{Feature detection}
+        \begin{itemize}
+          \item Maximum likelihood training procedure
+          \item Batch size = 64 on a single GPU
+          \item Adam optimizer w/ $\beta_1=0.9$, $\beta_2=0.999$, $\epsilon=10^{-6}$
+          \item LR = $10^{-3}$, exponentially decaying to $10^{-5}$
+          \item Warmup training till 50,000 iterations
+          \item L2 regularization with weight $10^{-6}$
+        \end{itemize}
+      \column{0.5\textwidth}
+        \textbf{WaveNet}
+        \begin{itemize}
+          \item Batch size = 128 on 32 GPUs
+          \item Adam optimizer w/ $\beta_1=0.9$, $\beta_2=0.999$, $\epsilon=10^{-8}$
+          \item Fixed LR = $10^{-4}$
+          \item Exponentially-weighted moving average of the network parameters over update steps with a decay of 0.9999
+          \item Scaling by 127.5
+          \item US English dataset
+        \end{itemize}
+    \end{columns}
   \end{frame}
 
   \begin{frame}
