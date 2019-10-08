@@ -5,7 +5,7 @@
 % http://texblog.net/latex-archive/latex-general/beamer-warnings/
 \usepackage{lmodern}
 % https://hartwork.org/beamer-theme-matrix/
-% \usecolortheme{dove}
+\usecolortheme{dove}
 
 % https://tex.stackexchange.com/a/356169
 \usepackage[style=ieee,backend=bibtex]{biblatex}
@@ -28,8 +28,8 @@
 }
 \date{October 9, 2019}
 
-\title[Neural TTS]{Neural Text-to-Speech}
-% \subtitle{A short story}
+\title[Neural TTS]{Tacotron 2 \& WaveNet}
+\subtitle{Neural text-to-speech}
  
 \begin{document}
 
@@ -42,9 +42,9 @@
   \addtocounter{framenumber}{-1}
 
   % https://tex.stackexchange.com/a/198102
-  % \begin{frame}{Overview}
-  %   \tableofcontents
-  % \end{frame}
+  \begin{frame}{Overview}
+    \tableofcontents
+  \end{frame}
 
   \begin{frame}
     \frametitle{Speech synthesis}
@@ -58,7 +58,6 @@
 
   \begin{frame}
     \frametitle{History of speech synthesis}
-    % TODO: Add images for each type
       \begin{columns}
         \column{0.33\textwidth}
           \textbf{Concatenative}\\
@@ -127,17 +126,16 @@
   \begin{frame}
     \frametitle{2. $\mu$-law companding}
     \centering
-    % TODO: Explain equation
     \begin{equation*}
       f(x_t) = \text{sign}(x_t)\frac{\ln(1 + \mu|x_t|)}{\ln(1 + \mu)}
     \end{equation*}
-    where, $x_t$ is the time domain speech signal
+    $-1 < x_t < 1$ is the time domain speech signal,\\
+    $\mu = 255$
   \end{frame}
 
   \begin{frame}
     \frametitle{3. Gated activation}
     \centering
-    % TODO: Explain equation
     \begin{equation*}
       \mathbf{z} = \tanh(W_{f, k}*\mathbf{x}) \circledast \sigma (W_{g, k}*\mathbf{x})
     \end{equation*}
@@ -162,7 +160,7 @@
 
   \begin{frame}
     \frametitle{5. Conditional WaveNets}
-    % TODO: Explain equation
+    Given an additional input $\mathbf{h}$, WaveNets can model the conditional distribution $p(\mathbf(x)|\mathbf{h})$ of the audio given the input.
     \begin{equation*}
       p(\mathbf{x} | \mathbf{h}) = \prod_{t=1}^{T}p(x_t | x_1, \ldots, x_{t-1}, \mathbf{h}) 
     \end{equation*}
@@ -247,7 +245,14 @@
   \end{frame}
 
   \begin{frame}
-    \frametitle{Summary}
+    \frametitle{Conclusions and future strategies}
+    % http://research.spa.aalto.fi/publications/theses/lemmetty_mst/chap11.html
+    \begin{itemize}
+      \item More general models
+      \item More languages
+      \item Names, abbreviations, context require more work
+      \item Better evaluation and testing required
+    \end{itemize}
   \end{frame}
   
 \end{document}
