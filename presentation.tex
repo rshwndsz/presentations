@@ -5,7 +5,7 @@
 % http://texblog.net/latex-archive/latex-general/beamer-warnings/
 \usepackage{lmodern}
 % https://hartwork.org/beamer-theme-matrix/
-\usecolortheme{dove}
+% \usecolortheme{dove}
 
 % https://tex.stackexchange.com/a/356169
 \usepackage[style=ieee,backend=bibtex]{biblatex}
@@ -28,8 +28,8 @@
 }
 \date{October 9, 2019}
 
-\title[Neural TTS]{Tacotron 2 \& WaveNet}
-\subtitle{Neural text-to-speech}
+\title[Neural TTS]{Tacotron 2}
+\subtitle{Natural TTS synthesis by conditioning WaveNet on Mel Spectrogram predictions}
  
 \begin{document}
 
@@ -46,6 +46,8 @@
     \tableofcontents
   \end{frame}
 
+  \section{Introduction}
+  \subsection{Speech synthesis}
   \begin{frame}
     \frametitle{Speech synthesis}
       Artificial production of human speech
@@ -56,8 +58,9 @@
       \end{figure}
   \end{frame}
 
+  \subsection{History of speech synthesis}
   \begin{frame}
-    \frametitle{History of speech synthesis}
+    \frametitle{History of speech synthesis \footfullcite{delic_speech_2019}}
       \begin{columns}
         \column{0.33\textwidth}
           \textbf{Concatenative}\\
@@ -79,15 +82,7 @@
       \end{columns}
   \end{frame}
 
-  \begin{frame}
-    \frametitle{Approaches in Neural text-to-speech}
-      \begin{itemize}
-          \item LSTM
-          \item WaveNet
-          \item WaveNet based
-      \end{itemize}
-  \end{frame}
-
+  \section{WaveNet}
   \begin{frame}
     \frametitle{WaveNet}
       A deep neural network for generating raw audiowaveforms.
@@ -104,6 +99,7 @@
       \end{figure}
   \end{frame}
 
+  \subsection{Architecture}
   \begin{frame}
     \frametitle{WaveNet: Architecture}
       \begin{itemize}
@@ -115,6 +111,7 @@
       \end{itemize}
   \end{frame}
 
+  \subsubsection{Dilated Convolution}
   \begin{frame}
     \frametitle{1. Dilated Convolution}
     \begin{figure}
@@ -123,6 +120,7 @@
     \end{figure}
   \end{frame}
 
+  \subsubsection{$\mu$-law companding}
   \begin{frame}
     \frametitle{2. $\mu$-law companding}
     \centering
@@ -133,6 +131,7 @@
     $\mu = 255$
   \end{frame}
 
+  \subsubsection{Gated activation}
   \begin{frame}
     \frametitle{3. Gated activation}
     \centering
@@ -150,6 +149,7 @@
     \end{flushleft}
   \end{frame}
 
+  \subsubsection{Residual and skip connections}
   \begin{frame}
     \frametitle{4. Residual and skip connections}
     \begin{figure}[ht]
@@ -158,6 +158,7 @@
     \end{figure}
   \end{frame}
 
+  \subsubsection{Conditional WaveNets}
   \begin{frame}
     \frametitle{5. Conditional WaveNets}
     Given an additional input $\mathbf{h}$, WaveNets can model the conditional distribution $p(\mathbf(x)|\mathbf{h})$ of the audio given the input.
@@ -166,6 +167,7 @@
     \end{equation*}
   \end{frame}
 
+  \subsection{Pros and Cons}
   \begin{frame}
     \frametitle{WaveNet: Pros and Cons}
     \begin{columns}
@@ -182,6 +184,8 @@
     \end{columns}
   \end{frame}
 
+  \section{Tacotron 2}
+  \subsection{Architecture}
   \begin{frame}
     \frametitle{Tacotron 2: Architecture}
     \begin{figure}
@@ -201,6 +205,7 @@
       Features derived from the mel scale have been used as an underlying representation for speech recognition for many decades. \footfullcite{davis1980comparison}
   \end{frame}
 
+  \subsection{Training}
   \begin{frame}
     \frametitle{Tacotron 2: Training}
     \begin{columns}
@@ -227,6 +232,7 @@
     \end{columns}
   \end{frame}
 
+  \subsection{Evaluation}
   \begin{frame}
     \frametitle{Tactron 2: Evaluation}
     \begin{itemize}
@@ -236,6 +242,7 @@
     \end{itemize}
   \end{frame}
 
+  \subsection{Reported results}
   \begin{frame}
     \frametitle{Tacotron 2: Reported results}
     \begin{figure}
@@ -244,6 +251,7 @@
     \end{figure}
   \end{frame}
 
+  \subsection{Conclusions and future strategies}
   \begin{frame}
     \frametitle{Conclusions and future strategies}
     % http://research.spa.aalto.fi/publications/theses/lemmetty_mst/chap11.html
