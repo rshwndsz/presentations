@@ -1,0 +1,87 @@
+
+@article{oord_wavenet:_2016,
+	title = {{WaveNet}: {A} {Generative} {Model} for {Raw} {Audio}},
+	shorttitle = {{WaveNet}},
+	url = {http://arxiv.org/abs/1609.03499},
+	abstract = {This paper introduces WaveNet, a deep neural network for generating raw audio waveforms. The model is fully probabilistic and autoregressive, with the predictive distribution for each audio sample conditioned on all previous ones; nonetheless we show that it can be efﬁciently trained on data with tens of thousands of samples per second of audio. When applied to text-to-speech, it yields state-ofthe-art performance, with human listeners rating it as signiﬁcantly more natural sounding than the best parametric and concatenative systems for both English and Mandarin. A single WaveNet can capture the characteristics of many different speakers with equal ﬁdelity, and can switch between them by conditioning on the speaker identity. When trained to model music, we ﬁnd that it generates novel and often highly realistic musical fragments. We also show that it can be employed as a discriminative model, returning promising results for phoneme recognition.},
+	language = {en},
+	urldate = {2019-10-08},
+	journal = {arXiv:1609.03499 [cs]},
+	author = {Oord, Aaron van den and Dieleman, Sander and Zen, Heiga and Simonyan, Karen and Vinyals, Oriol and Graves, Alex and Kalchbrenner, Nal and Senior, Andrew and Kavukcuoglu, Koray},
+	month = sep,
+	year = {2016},
+	note = {arXiv: 1609.03499},
+	keywords = {Computer Science - Machine Learning, Computer Science - Sound},
+	file = {Oord et al. - 2016 - WaveNet A Generative Model for Raw Audio.pdf:/Users/Russel/Zotero/storage/W4FGQFP7/Oord et al. - 2016 - WaveNet A Generative Model for Raw Audio.pdf:application/pdf}
+}
+
+@article{ping_deep_2017,
+	title = {Deep {Voice} 3: {Scaling} {Text}-to-{Speech} with {Convolutional} {Sequence} {Learning}},
+	shorttitle = {Deep {Voice} 3},
+	url = {http://arxiv.org/abs/1710.07654},
+	abstract = {We present Deep Voice 3, a fully-convolutional attention-based neural textto-speech (TTS) system. Deep Voice 3 matches state-of-the-art neural speech synthesis systems in naturalness while training an order of magnitude faster. We scale Deep Voice 3 to dataset sizes unprecedented for TTS, training on more than eight hundred hours of audio from over two thousand speakers. In addition, we identify common error modes of attention-based speech synthesis networks, demonstrate how to mitigate them, and compare several different waveform synthesis methods. We also describe how to scale inference to ten million queries per day on a single GPU server.},
+	language = {en},
+	urldate = {2019-10-08},
+	journal = {arXiv:1710.07654 [cs, eess]},
+	author = {Ping, Wei and Peng, Kainan and Gibiansky, Andrew and Arik, Sercan O. and Kannan, Ajay and Narang, Sharan and Raiman, Jonathan and Miller, John},
+	month = oct,
+	year = {2017},
+	note = {arXiv: 1710.07654},
+	keywords = {Computer Science - Artificial Intelligence, Computer Science - Computation and Language, Computer Science - Machine Learning, Computer Science - Sound, Electrical Engineering and Systems Science - Audio and Speech Processing},
+	file = {Ping et al. - 2017 - Deep Voice 3 Scaling Text-to-Speech with Convolut.pdf:/Users/Russel/Zotero/storage/MUEZL58W/Ping et al. - 2017 - Deep Voice 3 Scaling Text-to-Speech with Convolut.pdf:application/pdf}
+}
+
+@article{shen_natural_2017,
+	title = {Natural {TTS} {Synthesis} by {Conditioning} {WaveNet} on {Mel} {Spectrogram} {Predictions}},
+	url = {http://arxiv.org/abs/1712.05884},
+	abstract = {This paper describes Tacotron 2, a neural network architecture for speech synthesis directly from text. The system is composed of a recurrent sequence-to-sequence feature prediction network that maps character embeddings to mel-scale spectrograms, followed by a modiﬁed WaveNet model acting as a vocoder to synthesize time-domain waveforms from those spectrograms. Our model achieves a mean opinion score (MOS) of 4.53 comparable to a MOS of 4.58 for professionally recorded speech. To validate our design choices, we present ablation studies of key components of our system and evaluate the impact of using mel spectrograms as the conditioning input to WaveNet instead of linguistic, duration, and F0 features. We further show that using this compact acoustic intermediate representation allows for a signiﬁcant reduction in the size of the WaveNet architecture.},
+	language = {en},
+	urldate = {2019-10-08},
+	journal = {arXiv:1712.05884 [cs]},
+	author = {Shen, Jonathan and Pang, Ruoming and Weiss, Ron J. and Schuster, Mike and Jaitly, Navdeep and Yang, Zongheng and Chen, Zhifeng and Zhang, Yu and Wang, Yuxuan and Skerry-Ryan, R. J. and Saurous, Rif A. and Agiomyrgiannakis, Yannis and Wu, Yonghui},
+	month = dec,
+	year = {2017},
+	note = {arXiv: 1712.05884},
+	keywords = {Computer Science - Computation and Language},
+	file = {Shen et al. - 2017 - Natural TTS Synthesis by Conditioning WaveNet on M.pdf:/Users/Russel/Zotero/storage/7JL28CUR/Shen et al. - 2017 - Natural TTS Synthesis by Conditioning WaveNet on M.pdf:application/pdf}
+}
+
+@article{oord_parallel_2017,
+	title = {Parallel {WaveNet}: {Fast} {High}-{Fidelity} {Speech} {Synthesis}},
+	shorttitle = {Parallel {WaveNet}},
+	url = {http://arxiv.org/abs/1711.10433},
+	abstract = {The recently-developed WaveNet architecture [27] is the current state of the art in realistic speech synthesis, consistently rated as more natural sounding for many different languages than any previous system. However, because WaveNet relies on sequential generation of one audio sample at a time, it is poorly suited to today’s massively parallel computers, and therefore hard to deploy in a real-time production setting. This paper introduces Probability Density Distillation, a new method for training a parallel feed-forward network from a trained WaveNet with no signiﬁcant difference in quality. The resulting system is capable of generating high-ﬁdelity speech samples at more than 20 times faster than real-time, and is deployed online by Google Assistant, including serving multiple English and Japanese voices.},
+	language = {en},
+	urldate = {2019-10-08},
+	journal = {arXiv:1711.10433 [cs]},
+	author = {Oord, Aaron van den and Li, Yazhe and Babuschkin, Igor and Simonyan, Karen and Vinyals, Oriol and Kavukcuoglu, Koray and Driessche, George van den and Lockhart, Edward and Cobo, Luis C. and Stimberg, Florian and Casagrande, Norman and Grewe, Dominik and Noury, Seb and Dieleman, Sander and Elsen, Erich and Kalchbrenner, Nal and Zen, Heiga and Graves, Alex and King, Helen and Walters, Tom and Belov, Dan and Hassabis, Demis},
+	month = nov,
+	year = {2017},
+	note = {arXiv: 1711.10433},
+	keywords = {Computer Science - Machine Learning},
+	file = {Oord et al. - 2017 - Parallel WaveNet Fast High-Fidelity Speech Synthe.pdf:/Users/Russel/Zotero/storage/S27IEL99/Oord et al. - 2017 - Parallel WaveNet Fast High-Fidelity Speech Synthe.pdf:application/pdf}
+}
+
+@article{kim_flowavenet_2018,
+	title = {{FloWaveNet} : {A} {Generative} {Flow} for {Raw} {Audio}},
+	shorttitle = {{FloWaveNet}},
+	url = {http://arxiv.org/abs/1811.02155},
+	abstract = {Most modern text-to-speech architectures use a WaveNet vocoder for synthesizing high-ﬁdelity waveform audio, but there have been limitations, such as high inference time, in its practical application due to its ancestral sampling scheme. The recently suggested Parallel WaveNet and ClariNet have achieved real-time audio synthesis capability by incorporating inverse autoregressive ﬂow for parallel sampling. However, these approaches require a two-stage training pipeline with a well-trained teacher network and can only produce natural sound by using probability distillation along with auxiliary loss terms. We propose FloWaveNet, a ﬂow-based generative model for raw audio synthesis. FloWaveNet requires only a single-stage training procedure and a single maximum likelihood loss, without any additional auxiliary terms, and it is inherently parallel due to the characteristics of generative ﬂow. The model can efﬁciently sample raw audio in real-time, with clarity comparable to previous two-stage parallel models. The code and samples for all models, including our FloWaveNet, are publicly available.},
+	language = {en},
+	urldate = {2019-10-08},
+	journal = {arXiv:1811.02155 [cs, eess]},
+	author = {Kim, Sungwon and Lee, Sang-gil and Song, Jongyoon and Kim, Jaehyeon and Yoon, Sungroh},
+	month = nov,
+	year = {2018},
+	note = {arXiv: 1811.02155},
+	keywords = {Computer Science - Sound, Electrical Engineering and Systems Science - Audio and Speech Processing},
+	file = {Kim et al. - 2018 - FloWaveNet  A Generative Flow for Raw Audio.pdf:/Users/Russel/Zotero/storage/6MAGZVRC/Kim et al. - 2018 - FloWaveNet  A Generative Flow for Raw Audio.pdf:application/pdf}
+}
+
+@misc{wiki_tts,
+  author = {Andy0101},
+  title = {{A typical text-to-speech system}},
+  howpublished = "\url{https://commons.wikimedia.org/wiki/File:TTS_System.svg}",
+  year = {2010}, 
+  note = "[Online; accessed 10/08/2019]"
+}
