@@ -7,10 +7,15 @@
 % https://hartwork.org/beamer-theme-matrix/
 % \usecolortheme{dove}
 
+% https://tex.stackexchange.com/a/356169
+\usepackage[style=ieee,backend=bibtex]{biblatex}
+\addbibresource{bibliography.bib}
+
 \beamertemplatenavigationsymbolsempty
 % https://tex.stackexchange.com/a/74251
 \setbeamerfont{page number in head/foot}{size=\small}
 \setbeamertemplate{footline}[frame number]
+\setbeamerfont{footnote}{size=\tiny}
  
 \author{Russel Shawn Dsouza}
 % https://tex.stackexchange.com/a/61053
@@ -47,7 +52,7 @@
       \begin{figure}
         \centering
         \includegraphics[width=\textwidth]{images/TTS_System_screenshot}
-        \caption{A typical text-to-speech system}
+        \caption{A typical text-to-speech system\footfullcite{wiki_tts}}
       \end{figure}
   \end{frame}
 
@@ -108,7 +113,62 @@
 
   \begin{frame}
     \frametitle{WaveNet: Architecture}
+      \begin{itemize}
+        \item Dilated convolution
+        \item $\mu$ law companding
+        \item Gated activation
+        \item Residual and skip connection
+        \item Conditional wavenets
+        \item Context stacks
+      \end{itemize}
+  \end{frame}
 
+  \begin{frame}
+    \frametitle{1. Dilated Convolution}
+    \begin{figure}
+      \includegraphics[scale=0.22]{images/wavenet_arch_dilated_conv.png}
+      \caption{Stack of dilated causal convolution layers\footfullcite{oord_wavenet:_2016}}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{2. $\mu$-law companding}
+    \centering
+    % TODO: Explain equation
+    \begin{equation*}
+      f(x_t) = \text{sign}(x_t)\frac{\ln(1 + \mu|x_t|)}{\ln(1 + \mu)}
+    \end{equation*}
+    where, $x_t$ is the time domain speech signal
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{3. Gated activation}
+    \centering
+    % TODO: Explain equation
+    \begin{equation*}
+      \mathbf{z} = \tanh(W_{f, k}*\mathbf{x}) \circledast \sigma (W_{g, k}*\mathbf{x})
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{4. Residual and skip connections}
+    \begin{figure}[ht]
+      \includegraphics[width=\textwidth]{images/wavenet_arch_residual.png}
+      \caption{Overview of residual block and entire architecture \footfullcite{oord_wavenet:_2016}}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{5. Conditional WaveNets}
+    % TODO: Explain equation
+    \begin{equation*}
+      p(\mathbf{x} | \mathbf{h}) = \prod_{t=1}^{T}p(x_t | x_1, \ldots, x_{t-1}, \mathbf{h}) 
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{6. Context Stacks}
+      % TODO: Explain this
   \end{frame}
 
   \begin{frame}
