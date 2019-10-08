@@ -141,6 +141,15 @@
     \begin{equation*}
       \mathbf{z} = \tanh(W_{f, k}*\mathbf{x}) \circledast \sigma (W_{g, k}*\mathbf{x})
     \end{equation*}
+    \begin{flushleft}
+    $* \rightarrow$ convolution,\\
+    $\circledast \rightarrow$ element-wise multiplication,\\
+    $\sigma\text{(.)} \rightarrow$ sigmoid function,\\
+    $k \rightarrow$ layer index,\\
+    $f \rightarrow$ filter,\\
+    $g \rightarrow$ gate,\\
+    $W \rightarrow$ learnable convolution filter\footfullcite{oord_conditional_2016}
+    \end{flushleft}
   \end{frame}
 
   \begin{frame}
@@ -222,15 +231,19 @@
 
   \begin{frame}
     \frametitle{Tactron 2: Evaluation}
+    \begin{itemize}
+      \item 100 random examples from test set sent to Mechanical Turk
+      \item Each sample is rated by atleast 8 raters
+      \item Scores on a scale of 1 to 5 with 0.5 increments
+    \end{itemize}
   \end{frame}
 
   \begin{frame}
     \frametitle{Tacotron 2: Reported results}
-
-  \end{frame}
-
-  \begin{frame}
-    \frametitle{Tacotron 2: Improvements over WaveNet}
+    \begin{figure}
+      \includegraphics[scale=0.3]{images/tacotron_results.png}
+      \caption{Mean Opinion Score (MOS) evaluations}\footfullcite{shen_natural_2017}
+    \end{figure}
   \end{frame}
 
   \begin{frame}
