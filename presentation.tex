@@ -60,39 +60,33 @@
     \frametitle{History of speech synthesis}
     % TODO: Add images for each type
       \begin{columns}
-        \column{0.5\textwidth}
-          \centering
+        \column{0.33\textwidth}
           \textbf{Concatenative}\\
           \begin{itemize}
-            \item Large database of human speech used
+            \item Extract samples from large database of human speech
           \end{itemize}
 
-        \column{0.5\textwidth}
-          \centering
+        \column{0.33\textwidth}
           \textbf{Parametric}\\
           \begin{itemize}
-            \item Simulate human voice using a function
+            \item Simulate human voice using a parametric function
           \end{itemize}
 
+        \column{0.33\textwidth}
           \textbf{Neural}\\
           \begin{itemize}
-            \item Generate human voice using neural networks
+            \item Artificially generate human voice using neural networks
           \end{itemize}
       \end{columns}
   \end{frame}
 
   \begin{frame}
     \frametitle{Approaches in Neural text-to-speech}
-      % TODO: Add images for each type
-      % TODO: Add text
-      \begin{columns}
-        \column{0.33\textwidth}
-          LSTM
-        \column{0.33\textwidth}
-          WaveNet
-        \column{0.33\textwidth}
-          WaveNet based
-      \end{columns}
+      \begin{itemize}
+          \item LSTM
+          \item WaveNet
+          \item WaveNet based
+      \end{itemize}
   \end{frame}
 
   \begin{frame}
@@ -119,7 +113,6 @@
         \item Gated activation
         \item Residual and skip connection
         \item Conditional wavenets
-        \item Context stacks
       \end{itemize}
   \end{frame}
 
@@ -167,11 +160,6 @@
   \end{frame}
 
   \begin{frame}
-    \frametitle{6. Context Stacks}
-      % TODO: Explain this
-  \end{frame}
-
-  \begin{frame}
     \frametitle{WaveNet: Pros and Cons}
     \begin{columns}
       \column{0.5\textwidth}
@@ -185,11 +173,6 @@
           \item Slow inference
         \end{itemize}
     \end{columns}
-  \end{frame}
-
-  \begin{frame}
-    \frametitle{Tacotron 2}
-    Neural network composed of a recurrent sequence-to-sequence feature prediction network that maps character embeddings to mel-scale spectrograms, followed by a modified WaveNet model acting as a vocoder to synthesize time-domain waveforms from those spectrograms.
   \end{frame}
 
   \begin{frame}
@@ -238,7 +221,12 @@
   \end{frame}
 
   \begin{frame}
+    \frametitle{Tactron 2: Evaluation}
+  \end{frame}
+
+  \begin{frame}
     \frametitle{Tacotron 2: Reported results}
+
   \end{frame}
 
   \begin{frame}
@@ -246,15 +234,7 @@
   \end{frame}
 
   \begin{frame}
-    \frametitle{Neural TTS: The future}
-  \end{frame}
-
-  \begin{frame}
     \frametitle{Summary}
-  \end{frame}
-
-  \begin{frame}
-    \frametitle{Conclusion}
   \end{frame}
   
 \end{document}
