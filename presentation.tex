@@ -85,7 +85,7 @@
   \section{WaveNet}
   \begin{frame}
     \frametitle{WaveNet}
-      A deep neural network for generating raw audiowaveforms.
+      A deep neural network for generating raw audio waveforms.
 
       \begin{itemize}
         \item Probabilistic 
@@ -102,6 +102,7 @@
   \subsection{Architecture}
   \begin{frame}
     \frametitle{WaveNet: Architecture}
+    \textbf{Important Components}\\
       \begin{itemize}
         \item Dilated convolution
         \item $\mu$ law companding
@@ -133,7 +134,7 @@
 
   \subsubsection{Gated activation}
   \begin{frame}
-    \frametitle{3. Gated activation}
+    \frametitle{3. Gated activation\footfullcite{oord_conditional_2016}}
     \centering
     \begin{equation*}
       \mathbf{z} = \tanh(W_{f, k}*\mathbf{x}) \circledast \sigma (W_{g, k}*\mathbf{x})
@@ -145,7 +146,7 @@
     $k \rightarrow$ layer index,\\
     $f \rightarrow$ filter,\\
     $g \rightarrow$ gate,\\
-    $W \rightarrow$ learnable convolution filter\footfullcite{oord_conditional_2016}
+    $W \rightarrow$ learnable convolution filter
     \end{flushleft}
   \end{frame}
 
@@ -161,27 +162,20 @@
   \subsubsection{Conditional WaveNets}
   \begin{frame}
     \frametitle{5. Conditional WaveNets}
-    Given an additional input $\mathbf{h}$, WaveNets can model the conditional distribution $p(\mathbf(x)|\mathbf{h})$ of the audio given the input.
+    Given an additional input $\mathbf{h}$, WaveNets can model the conditional distribution $p(\mathbf{x}|\mathbf{h})$ of the audio given the input,
     \begin{equation*}
       p(\mathbf{x} | \mathbf{h}) = \prod_{t=1}^{T}p(x_t | x_1, \ldots, x_{t-1}, \mathbf{h}) 
     \end{equation*}
   \end{frame}
 
-  \subsection{Pros and Cons}
+  \subsection{Reported results}
   \begin{frame}
-    \frametitle{WaveNet: Pros and Cons}
-    \begin{columns}
-      \column{0.5\textwidth}
-        \textbf{Pros}
-        \begin{itemize}
-          \item Fast training
-        \end{itemize}
-      \column{0.5\textwidth}
-        \textbf{Cons}
-        \begin{itemize}
-          \item Slow inference
-        \end{itemize}
-    \end{columns}
+    \frametitle{WaveNet: Reported results}
+    \textbf{Reported results}
+    \begin{figure}
+      \includegraphics[width=\textwidth]{images/wavenet_mos.png}
+      \caption{Mean Opinion Scores (MOS) for English and Mandarin\footfullcite{deepmind_wavenet}}
+    \end{figure}
   \end{frame}
 
   \section{Tacotron 2}
@@ -197,7 +191,7 @@
   \begin{frame}
     \frametitle{Mel spectrogram}
       \begin{itemize}
-        \item Related to the short-time Fourier transform (STFT) magnitude 
+        \item Related to the short-time Fourier transform (STFT)
         \item Obtained by applying a nonlinear transform to the frequency axis of the STFT
         \item Emphasizes details in lower frequencies
         \item De-emphasizes high frequency details
@@ -210,7 +204,7 @@
     \frametitle{Tacotron 2: Training}
     \begin{columns}
       \column{0.5\textwidth}
-        \textbf{Feature detection}
+        \textbf{Feature detection network}
         \begin{itemize}
           \item Maximum likelihood training procedure
           \item Batch size = 64 on a single GPU
@@ -247,7 +241,7 @@
     \frametitle{Tacotron 2: Reported results}
     \begin{figure}
       \includegraphics[scale=0.3]{images/tacotron_results.png}
-      \caption{Mean Opinion Score (MOS) evaluations}\footfullcite{shen_natural_2017}
+      \caption{Mean Opinion Scores (MOS)\footfullcite{shen_natural_2017}}
     \end{figure}
   \end{frame}
 
