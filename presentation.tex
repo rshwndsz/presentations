@@ -112,9 +112,18 @@
       \end{itemize}
   \end{frame}
 
+  \subsubsection{Conditional WaveNets}
+  \begin{frame}
+    \frametitle{1. Conditional WaveNets}
+    Given an additional input $\mathbf{h}$, WaveNets can model the conditional distribution $p(\mathbf{x}|\mathbf{h})$ of the audio given the input,
+    \begin{equation*}
+      p(\mathbf{x} | \mathbf{h}) = \prod_{t=1}^{T}p(x_t | x_1, \ldots, x_{t-1}, \mathbf{h}) 
+    \end{equation*}
+  \end{frame}
+
   \subsubsection{Dilated Causal Convolution}
   \begin{frame}
-    \frametitle{1. Dilated Causal Convolution}
+    \frametitle{2. Dilated Causal Convolution}
     \begin{figure}
       \includegraphics[scale=0.22]{images/wavenet_arch_dilated_conv.png}
       \caption{Stack of dilated causal convolution layers\footfullcite{oord_wavenet:_2016}}
@@ -123,7 +132,7 @@
 
   \subsubsection{$\mu$-law companding}
   \begin{frame}
-    \frametitle{2. $\mu$-law companding\footfullcite{cisco_mu_law}}
+    \frametitle{3. $\mu$-law companding\footfullcite{cisco_mu_law}}
     \centering
     \begin{equation*}
       f(x_t) = \text{sign}(x_t)\frac{\ln(1 + \mu|x_t|)}{\ln(1 + \mu)}
@@ -134,7 +143,7 @@
 
   \subsubsection{Gated activation}
   \begin{frame}
-    \frametitle{3. Gated activation\footfullcite{oord_conditional_2016}}
+    \frametitle{4. Gated activation\footfullcite{oord_conditional_2016}}
     \centering
     \begin{equation*}
       \mathbf{z} = \tanh(W_{f, k}*\mathbf{x}) \circledast \sigma (W_{g, k}*\mathbf{x})
@@ -152,20 +161,11 @@
 
   \subsubsection{Residual and skip connections}
   \begin{frame}
-    \frametitle{4. Residual and skip connections}
+    \frametitle{5. Residual and skip connections}
     \begin{figure}[ht]
       \includegraphics[width=\textwidth]{images/wavenet_arch_residual.png}
       \caption{Overview of residual block and entire architecture \footfullcite{oord_wavenet:_2016}}
     \end{figure}
-  \end{frame}
-
-  \subsubsection{Conditional WaveNets}
-  \begin{frame}
-    \frametitle{5. Conditional WaveNets}
-    Given an additional input $\mathbf{h}$, WaveNets can model the conditional distribution $p(\mathbf{x}|\mathbf{h})$ of the audio given the input,
-    \begin{equation*}
-      p(\mathbf{x} | \mathbf{h}) = \prod_{t=1}^{T}p(x_t | x_1, \ldots, x_{t-1}, \mathbf{h}) 
-    \end{equation*}
   \end{frame}
 
   \subsection{Reported results}
