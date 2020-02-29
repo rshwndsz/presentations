@@ -1,3 +1,3 @@
-# Seminar on Tacotron 2
+# My presentations
 
-A presentation on the state of the art in Neural text-to-speech 
+Source code for the presentations I've given.
